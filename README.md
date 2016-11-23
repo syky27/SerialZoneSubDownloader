@@ -1,6 +1,6 @@
 # What the hell is this all about?
 
-Well in case you have a girl friend that is Czech speaker and 
+Well in case you have a girlfriend that is Czech speaker and 
 not entirely comfortable wathing TV shows with original audio
 without subtitles, this is for you.
 

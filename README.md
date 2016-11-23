@@ -28,7 +28,7 @@ subtitles for the show
 
 ## TODO
 
-[ ] Specify location
-[ ] Polish the 10 minute code
-[ ] Ruby Gem? :D
+- [ ] Specify location
+- [ ] Polish the 10 minute code
+- [ ] Ruby Gem? :D
 

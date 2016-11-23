@@ -6,8 +6,6 @@
   rows = []
   counter = 1
 
-
-
   puts 'Fetching data from web'
 
   mechanize = Mechanize.new
@@ -35,12 +33,14 @@
   if rows.count > 2
     spinner.success('Found shows')
     puts Terminal::Table.new :rows => rows
+    puts 'Enter which TV show you want to download use the numbers in left column'
     index = $stdin.gets
     subtitle_url = rows[index.to_s.delete('\n').to_i - 1][2]
   elsif rows.count == 1
+    subtitle_url = rows[0][2]
+  else
     spinner.error('Failed to find show')
-  else rows.count == 2
-  subtitle_url = rows[0][2]
+    exit(1)
   end
 
   spinner.auto_spin
@@ -55,9 +55,18 @@
             mechanize.get(download_link).save()
             download_count += 1
           end
+        else
+          mechanize.get(download_link).save()
+          download_count += 1
         end
 
       end
     end
-  spinner.success("#{download_count}Subs downloaded")
+
+  if download_count == 0
+    spinner.error('Could not find any matching subs')
+    exit(1)
+  end
+
+  spinner.success("#{download_count} Subs downloaded")
 
